@@ -23,7 +23,7 @@ linter:
   # `// ignore_for_file: name_of_lint` syntax on the line or in the file
   # producing the lint.
   rules:
-    avoid_print: false  
+    avoid_print: true  
     prefer_single_quotes: true
     await_only_futures: true
     sort_pub_dependencies: true
@@ -35,6 +35,10 @@ linter:
     camel_case_types: true
     always_declare_return_types: true
     unsafe_html: true
+    prefer_relative_imports: true
+    avoid_relative_lib_imports: true
+    directives_ordering: true
+    package_api_docs: true
 
 # Additional information about this file can be found at
 # https://dart.dev/guides/language/analysis-options
