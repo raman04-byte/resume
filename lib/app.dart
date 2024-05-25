@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'blocs/login_bloc.dart';
 import 'data/repositories/auth_repo.dart';
-import 'presentation/view/screens/login_view.dart';
+import 'routes.dart';
 
 class MyApp extends StatefulWidget {
   const MyApp({super.key});
@@ -27,7 +27,8 @@ class _MyAppState extends State<MyApp> {
       ],
       child: const MaterialApp(
         title: 'Resume',
-        home: LoginView(),
+        initialRoute: Routes.login,
+        onGenerateRoute: Routes.generateRoute,
       ),
     );
   }
