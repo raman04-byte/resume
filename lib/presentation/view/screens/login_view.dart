@@ -57,11 +57,11 @@ class _LoginViewState extends State<LoginView> {
                 },
                 child: const Text('Login'),
               ),
-              BlocBuilder<LoginBloc, LoginState>(builder: (context, state) {
-                return state is LoginLoading
-                    ? const CircularProgressIndicator()
-                    : const SizedBox.shrink();
-              })
+              // BlocBuilder<LoginBloc, LoginState>(builder: (context, state) {
+              //   return state is LoginLoading
+              //       ? const CircularProgressIndicator()
+              //       : const SizedBox.shrink();
+              // })
             ],
           ),
         ),
