@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../blocs/login_bloc.dart';
-import '../../../blocs/login_state.dart';
-import '../../viewmodels/login_viewmodel.dart';
+import '../../../blocs/login_blocs/login_bloc.dart';
+import '../../../blocs/login_blocs/login_state.dart';
+import '../../../routes.dart';
+import '../../viewmodels/login_view_model.dart';
 
 class LoginView extends StatefulWidget {
   const LoginView({super.key});
@@ -27,7 +28,7 @@ class _LoginViewState extends State<LoginView> {
       body: BlocListener<LoginBloc, LoginState>(
         listener: (context, state) {
           if (state is LoginSuccess) {
-            Navigator.pushNamed(context, '/home');
+            Navigator.pushNamed(context, Routes.home);
           } else if (state is LoginFailure) {
             ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(

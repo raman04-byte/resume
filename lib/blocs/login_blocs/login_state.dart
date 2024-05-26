@@ -1,13 +1,15 @@
 import 'package:equatable/equatable.dart';
 
-import '../data/models/user.dart';
+import '../../data/models/user.dart';
 
 abstract class LoginState extends Equatable {
   const LoginState();
-  
+
   @override
   List<Object?> get props => [];
-}class LoginInitial extends LoginState {}
+}
+
+class LoginInitial extends LoginState {}
 
 class LoginLoading extends LoginState {}
 

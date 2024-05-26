@@ -1,6 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../data/repositories/auth_repo.dart';
+import '../../data/repositories/auth_repo.dart';
 import 'login_event.dart';
 import 'login_state.dart';
 
@@ -21,7 +21,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
       if (user != null) {
         emit(LoginSuccess(user));
       } else {
-        emit(const LoginFailure('Invalid email or password'));
+        emit(const LoginFailure('Invalid'));
       }
     } catch (error) {
       emit(LoginFailure(error.toString()));
