@@ -1,5 +1,6 @@
 import 'package:appwrite/appwrite.dart';
 import '../../env.dart';
+import '../models/user.dart';
 
 // import '../models/user.dart';
 
@@ -15,6 +16,6 @@ class AuthenticationRepository {
           'name': name,
           'companyName': companyName,
         });
-    return null;
+    return User(name: name, companyName: companyName);
   }
 }

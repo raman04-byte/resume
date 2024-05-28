@@ -20,6 +20,7 @@ class _HomeViewState extends State<HomeView> {
     );
     return Scaffold(
       appBar: AppBar(
+        leading: Container(),
         title: const Text('Home'),
       ),
       body: BlocListener<HomeBloc, HomeState>(
