@@ -1,9 +1,10 @@
+import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../blocs/login_blocs/login_bloc.dart';
 import '../../../blocs/login_blocs/login_state.dart';
-import '../../../resources/dimens.dart';
+import '../../../resources/resources.dart' as resources;
 import '../../../routes.dart';
 import '../../viewmodels/login_view_model.dart';
 
@@ -20,8 +21,8 @@ class _LoginViewState extends State<LoginView> {
 
   @override
   void didChangeDependencies() {
-    context.read<DimensionBloc>().add(
-          UpdateDimensions(
+    context.read<resources.DimensionBloc>().add(
+          resources.UpdateDimensions(
             MediaQuery.sizeOf(context).height,
             MediaQuery.sizeOf(context).width,
           ),
@@ -58,13 +59,13 @@ class _LoginViewState extends State<LoginView> {
             );
           }
         },
-        child: BlocBuilder<DimensionBloc, DimensionState>(
+        child: BlocBuilder<resources.DimensionBloc, resources.DimensionState>(
           builder: (context, dimensionState) {
             if (dimensionState.screenHeight == 0 ||
                 dimensionState.screenWidth == 0) {
               return const Center(child: CircularProgressIndicator());
             }
-            final dimensionBloc = context.read<DimensionBloc>();
+            final dimensionBloc = context.read<resources.DimensionBloc>();
 
             return Padding(
               padding: EdgeInsets.symmetric(
@@ -73,16 +74,38 @@ class _LoginViewState extends State<LoginView> {
               ),
               child: Column(
                 children: [
+                  DefaultTextStyle(
+                    style: const TextStyle(
+                      fontSize: 40.0,
+                    ),
+                    child: AnimatedTextKit(
+                      repeatForever: true,
+                      pause: const Duration(milliseconds: 1000),
+                      animatedTexts: [
+                        TypewriterAnimatedText(
+                            resources.AppStrings().typeWritedAnimationText1),
+                        TypewriterAnimatedText(
+                            resources.AppStrings().typeWritedAnimationText2),
+                        TypewriterAnimatedText(
+                            resources.AppStrings().typeWritedAnimationText3),
+                        TypewriterAnimatedText(
+                            resources.AppStrings().typeWritedAnimationText4),
+                      ],
+                    ),
+                  ),
                   TextField(
                     controller: _nameController,
-                    decoration: const InputDecoration(labelText: 'Name'),
+                    decoration:
+                        InputDecoration(labelText: resources.AppStrings().name),
                   ),
                   TextField(
                     controller: _companyNameController,
-                    decoration:
-                        const InputDecoration(labelText: 'Company Name'),
+                    decoration: InputDecoration(
+                        labelText: resources.AppStrings().companyName),
                   ),
-                  const SizedBox(height: 20),
+                  SizedBox(
+                    height: dimensionBloc.scaleH(20),
+                  ),
                   ElevatedButton(
                     onPressed: () {
                       loginViewModel.login(
@@ -90,7 +113,9 @@ class _LoginViewState extends State<LoginView> {
                         _companyNameController.text,
                       );
                     },
-                    child: const Text('Login'),
+                    child: Text(
+                      resources.AppStrings().login,
+                    ),
                   ),
                 ],
               ),

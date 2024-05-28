@@ -7,7 +7,7 @@ import 'blocs/home_blocs/home_bloc.dart';
 import 'blocs/login_blocs/login_bloc.dart';
 import 'data/repositories/auth_repo.dart';
 import 'data/repositories/home_repo.dart';
-import 'resources/dimens.dart';
+import 'resources/resources.dart' as resources;
 import 'routes.dart';
 
 class MyApp extends StatefulWidget {
@@ -35,16 +35,17 @@ class _MyAppState extends State<MyApp> {
           homeRepository: homeRepository,
         ),
       ),
-      BlocProvider(create: (context) => DimensionBloc()),
+      BlocProvider(create: (context) => resources.DimensionBloc()),
     ];
     return MultiBlocProvider(
       providers: listOfProvide,
       child: MaterialApp(
-        title: 'Resume',
+        title: resources.AppStrings().appName,
         initialRoute: Routes.login,
         onGenerateRoute: Routes.generateRoute,
         debugShowCheckedModeBanner: false,
         themeMode: ThemeMode.dark,
+        darkTheme: ThemeData.dark(),
         theme: ThemeData(
           fontFamily: GoogleFonts.robotoMono().fontFamily,
         ),
