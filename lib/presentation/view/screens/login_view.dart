@@ -37,7 +37,7 @@ class _LoginViewState extends State<LoginView> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Login'),
+        title: Text(resources.AppStrings().login),
         actions: [
           IconButton(
             onPressed: () {
