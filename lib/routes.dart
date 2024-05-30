@@ -4,7 +4,7 @@ import 'presentation/view/screens/home_view.dart';
 import 'presentation/view/screens/login_view.dart';
 
 class Routes {
-  static const String login = '/login';
+  static const String login = '/';
   static const String home = '/home';
 
   static Route<dynamic> generateRoute(RouteSettings settings) {

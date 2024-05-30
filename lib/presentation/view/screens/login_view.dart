@@ -37,6 +37,7 @@ class _LoginViewState extends State<LoginView> {
 
     return Scaffold(
       appBar: AppBar(
+        centerTitle: true,
         title: Text(resources.AppStrings().login),
         actions: [
           IconButton(
@@ -83,13 +84,29 @@ class _LoginViewState extends State<LoginView> {
                       pause: const Duration(milliseconds: 1000),
                       animatedTexts: [
                         TypewriterAnimatedText(
-                            resources.AppStrings().typeWritedAnimationText1),
+                          resources.AppStrings().typeWritedAnimationText1,
+                          textStyle: const TextStyle(
+                            color: Colors.white,
+                          ),
+                        ),
                         TypewriterAnimatedText(
-                            resources.AppStrings().typeWritedAnimationText2),
+                          resources.AppStrings().typeWritedAnimationText2,
+                          textStyle: const TextStyle(
+                            color: Colors.white,
+                          ),
+                        ),
                         TypewriterAnimatedText(
-                            resources.AppStrings().typeWritedAnimationText3),
+                          resources.AppStrings().typeWritedAnimationText3,
+                          textStyle: const TextStyle(
+                            color: Colors.white,
+                          ),
+                        ),
                         TypewriterAnimatedText(
-                            resources.AppStrings().typeWritedAnimationText4),
+                          resources.AppStrings().typeWritedAnimationText4,
+                          textStyle: const TextStyle(
+                            color: Colors.white,
+                          ),
+                        ),
                       ],
                     ),
                   ),
