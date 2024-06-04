@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../blocs/login_blocs/login_bloc.dart';
 import '../../../blocs/login_blocs/login_state.dart';
+import '../../../gen_l10n/app_localizations.dart';
 import '../../../resources/resources.dart' as resources;
 import '../../../routes.dart';
 import '../../viewmodels/login_view_model.dart';
@@ -34,11 +35,11 @@ class _LoginViewState extends State<LoginView> {
   Widget build(BuildContext context) {
     final loginViewModel =
         LoginViewmodel(loginBloc: BlocProvider.of<LoginBloc>(context));
-
+    final dynamicText= AppLocalizations.of(context);
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: Text(resources.AppStrings().login),
+        title: Text(dynamicText?.login ?? 'Login'),
         actions: [
           IconButton(
             onPressed: () {
@@ -84,25 +85,25 @@ class _LoginViewState extends State<LoginView> {
                       pause: const Duration(milliseconds: 1000),
                       animatedTexts: [
                         TypewriterAnimatedText(
-                          resources.AppStrings().typeWritedAnimationText1,
+                          dynamicText?.typeWritedAnimationText1 ?? 'TypeWrited Animation',
                           textStyle: const TextStyle(
                             color: Colors.white,
                           ),
                         ),
                         TypewriterAnimatedText(
-                          resources.AppStrings().typeWritedAnimationText2,
+                          dynamicText?.typeWritedAnimationText2 ?? 'TypeWrited Animation',
                           textStyle: const TextStyle(
                             color: Colors.white,
                           ),
                         ),
                         TypewriterAnimatedText(
-                          resources.AppStrings().typeWritedAnimationText3,
+                          dynamicText?.typeWritedAnimationText3 ?? 'TypeWrited Animation',
                           textStyle: const TextStyle(
                             color: Colors.white,
                           ),
                         ),
                         TypewriterAnimatedText(
-                          resources.AppStrings().typeWritedAnimationText4,
+                            dynamicText?.typeWritedAnimationText4 ?? 'TypeWrited Animation',
                           textStyle: const TextStyle(
                             color: Colors.white,
                           ),
@@ -113,12 +114,12 @@ class _LoginViewState extends State<LoginView> {
                   TextField(
                     controller: _nameController,
                     decoration:
-                        InputDecoration(labelText: resources.AppStrings().name),
+                        InputDecoration(labelText: dynamicText?.name ?? 'Name'),
                   ),
                   TextField(
                     controller: _companyNameController,
                     decoration: InputDecoration(
-                        labelText: resources.AppStrings().companyName),
+                        labelText: dynamicText?.companyName ?? 'Company Name'),
                   ),
                   SizedBox(
                     height: dimensionBloc.scaleH(20),
@@ -131,7 +132,7 @@ class _LoginViewState extends State<LoginView> {
                       );
                     },
                     child: Text(
-                      resources.AppStrings().login,
+                      dynamicText?.login ?? 'Login',
                     ),
                   ),
                 ],
